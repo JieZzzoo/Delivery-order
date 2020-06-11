@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.itcast.ssm.mapper.XinPinMapper">
+	<select id="queryXinPin"  resultType="product">
+	<!-- SELECT products.p_id,products.name, products.imgurl,SUM(orderitem.buynum) totalsalnum 
+	                     FROM orderitem,orders,products 
+	                      WHERE orderitem.o_id = orders.o_id 
+	                              AND products.p_id = orderitem.p_id 
+	                              AND orders.paystate=1 
+	                              AND orders.ordertime > DATE_SUB(NOW(), INTERVAL 60 DAY)
+                              
+	                      GROUP BY products.p_id,products.name,products.imgurl 
+	                      ORDER BY totalsalnum DESC LIMIT 0,4  -->
+SELECT p_id,`name`,imgurl
+	                     FROM products 
+	                      WHERE producetime > DATE_SUB(NOW(), INTERVAL 7 DAY)
+	 	</select> 
+</mapper>
